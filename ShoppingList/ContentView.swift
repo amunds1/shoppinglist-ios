@@ -31,8 +31,10 @@ struct ContentView: View {
                         newItem = ""
                     }
                     .disableAutocorrection(true)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 12)
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
                     
-                
                 Button(action: {
                     addItem(name: newItem)
                     newItem = ""
@@ -40,28 +42,10 @@ struct ContentView: View {
                     Label("Add", systemImage: "plus")
                 }
             }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
             
             List {
-                /*
-                HStack {
-                    TextField("New item", text: $newItem)
-                        .foregroundStyle(.secondary)
-                        .onSubmit {
-                            addItem(name: newItem)
-                            newItem = ""
-                        }
-                        .disableAutocorrection(true)
-                        
-                    Spacer()
-                    Button(action: {
-                        addItem(name: newItem)
-                        newItem = ""
-                    }) {
-                        Label("Add", systemImage: "plus")
-                    }
-                }
-                */
-                
                 ForEach(uncheckedItems) { item in
                     ShoppingListItemModelView(item: item)
                 }
@@ -72,7 +56,10 @@ struct ContentView: View {
                 }
                 .onDelete(perform: deleteItems)
             }
-            .navigationTitle("Shopping list")
+            .listStyle(.plain)
+            //.scrollDismissKeyboard(.immediately)
+            
+            .navigationTitle("My shopping list")
             .toolbar {
                 ToolbarItem {
                     Button(action: {
@@ -94,14 +81,12 @@ struct ContentView: View {
                     secondaryButton: .cancel()
                 )
             }
-            
             .onChange(of: scenePhase) {
                 if scenePhase == ScenePhase.background {
                     print("App is now active")
                     WidgetCenter.shared.reloadAllTimelines()
                 }
             }
-            
         }
     }
     
