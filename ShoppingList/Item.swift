@@ -9,10 +9,17 @@ import Foundation
 import SwiftData
 
 @Model
-final class Item {
-    var timestamp: Date
+final class Item: Identifiable {
+    private(set) var id: UUID = UUID()
+    private(set) var createdAt: Date
     
-    init(timestamp: Date) {
-        self.timestamp = timestamp
+    var name: String
+    var checked: Bool
+    
+    init(id: UUID = UUID(), createdAt: Date = .now, name: String, checked: Bool = false) {
+        self.id = id
+        self.createdAt = createdAt
+        self.name = name
+        self.checked = checked
     }
 }

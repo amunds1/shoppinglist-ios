@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E1BADC3E2D0B0AA800B56E9F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BADC3D2D0B0AA800B56E9F /* WidgetKit.framework */; };
+		E1BADC402D0B0AA800B56E9F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BADC3F2D0B0AA800B56E9F /* SwiftUI.framework */; };
+		E1BADC4F2D0B0AA900B56E9F /* ShoppingListWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E1BADC3B2D0B0AA800B56E9F /* ShoppingListWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		E1922B562CD2957B00371C11 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,12 +27,37 @@
 			remoteGlobalIDString = E1922B402CD2957900371C11;
 			remoteInfo = ShoppingList;
 		};
+		E1BADC4D2D0B0AA900B56E9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1922B392CD2957900371C11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1BADC3A2D0B0AA800B56E9F;
+			remoteInfo = ShoppingListWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E1BADC502D0B0AA900B56E9F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E1BADC4F2D0B0AA900B56E9F /* ShoppingListWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E1922B412CD2957900371C11 /* ShoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1922B552CD2957B00371C11 /* ShoppingListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppingListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1922B5F2CD2957B00371C11 /* ShoppingListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppingListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1BADC3B2D0B0AA800B56E9F /* ShoppingListWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShoppingListWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1BADC3D2D0B0AA800B56E9F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		E1BADC3F2D0B0AA800B56E9F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		E1BADC552D0B1F9100B56E9F /* ShoppingListWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShoppingListWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +67,13 @@
 				Info.plist,
 			);
 			target = E1922B402CD2957900371C11 /* ShoppingList */;
+		};
+		E1BADC542D0B0AA900B56E9F /* Exceptions for "ShoppingListWidget" folder in "ShoppingListWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E1BADC3A2D0B0AA800B56E9F /* ShoppingListWidgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -56,6 +94,14 @@
 		E1922B622CD2957B00371C11 /* ShoppingListUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ShoppingListUITests;
+			sourceTree = "<group>";
+		};
+		E1BADC412D0B0AA800B56E9F /* ShoppingListWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E1BADC542D0B0AA900B56E9F /* Exceptions for "ShoppingListWidget" folder in "ShoppingListWidgetExtension" target */,
+			);
+			path = ShoppingListWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -82,15 +128,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E1BADC382D0B0AA800B56E9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1BADC402D0B0AA800B56E9F /* SwiftUI.framework in Frameworks */,
+				E1BADC3E2D0B0AA800B56E9F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		E1922B382CD2957900371C11 = {
 			isa = PBXGroup;
 			children = (
+				E1BADC552D0B1F9100B56E9F /* ShoppingListWidgetExtension.entitlements */,
 				E1922B432CD2957900371C11 /* ShoppingList */,
 				E1922B582CD2957B00371C11 /* ShoppingListTests */,
 				E1922B622CD2957B00371C11 /* ShoppingListUITests */,
+				E1BADC412D0B0AA800B56E9F /* ShoppingListWidget */,
+				E1BADC3C2D0B0AA800B56E9F /* Frameworks */,
 				E1922B422CD2957900371C11 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,8 +159,18 @@
 				E1922B412CD2957900371C11 /* ShoppingList.app */,
 				E1922B552CD2957B00371C11 /* ShoppingListTests.xctest */,
 				E1922B5F2CD2957B00371C11 /* ShoppingListUITests.xctest */,
+				E1BADC3B2D0B0AA800B56E9F /* ShoppingListWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E1BADC3C2D0B0AA800B56E9F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1BADC3D2D0B0AA800B56E9F /* WidgetKit.framework */,
+				E1BADC3F2D0B0AA800B56E9F /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,10 +183,12 @@
 				E1922B3D2CD2957900371C11 /* Sources */,
 				E1922B3E2CD2957900371C11 /* Frameworks */,
 				E1922B3F2CD2957900371C11 /* Resources */,
+				E1BADC502D0B0AA900B56E9F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E1BADC4E2D0B0AA900B56E9F /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				E1922B432CD2957900371C11 /* ShoppingList */,
@@ -176,6 +246,28 @@
 			productReference = E1922B5F2CD2957B00371C11 /* ShoppingListUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		E1BADC3A2D0B0AA800B56E9F /* ShoppingListWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1BADC532D0B0AA900B56E9F /* Build configuration list for PBXNativeTarget "ShoppingListWidgetExtension" */;
+			buildPhases = (
+				E1BADC372D0B0AA800B56E9F /* Sources */,
+				E1BADC382D0B0AA800B56E9F /* Frameworks */,
+				E1BADC392D0B0AA800B56E9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E1BADC412D0B0AA800B56E9F /* ShoppingListWidget */,
+			);
+			name = ShoppingListWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = ShoppingListWidgetExtension;
+			productReference = E1BADC3B2D0B0AA800B56E9F /* ShoppingListWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,6 +289,9 @@
 						CreatedOnToolsVersion = 16.1;
 						TestTargetID = E1922B402CD2957900371C11;
 					};
+					E1BADC3A2D0B0AA800B56E9F = {
+						CreatedOnToolsVersion = 16.1;
+					};
 				};
 			};
 			buildConfigurationList = E1922B3C2CD2957900371C11 /* Build configuration list for PBXProject "ShoppingList" */;
@@ -216,6 +311,7 @@
 				E1922B402CD2957900371C11 /* ShoppingList */,
 				E1922B542CD2957B00371C11 /* ShoppingListTests */,
 				E1922B5E2CD2957B00371C11 /* ShoppingListUITests */,
+				E1BADC3A2D0B0AA800B56E9F /* ShoppingListWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -236,6 +332,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E1922B5D2CD2957B00371C11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1BADC392D0B0AA800B56E9F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,6 +369,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E1BADC372D0B0AA800B56E9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -279,6 +389,11 @@
 			target = E1922B402CD2957900371C11 /* ShoppingList */;
 			targetProxy = E1922B602CD2957B00371C11 /* PBXContainerItemProxy */;
 		};
+		E1BADC4E2D0B0AA900B56E9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1BADC3A2D0B0AA800B56E9F /* ShoppingListWidgetExtension */;
+			targetProxy = E1BADC4D2D0B0AA900B56E9F /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -291,14 +406,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ShoppingList/Preview Content\"";
+				DEVELOPMENT_TEAM = A3NZ96F2M2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShoppingList/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Shopping List";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,14 +439,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ShoppingList/Preview Content\"";
+				DEVELOPMENT_TEAM = A3NZ96F2M2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShoppingList/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Shopping List";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -529,6 +650,62 @@
 			};
 			name = Release;
 		};
+		E1BADC512D0B0AA900B56E9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ShoppingListWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A3NZ96F2M2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShoppingListWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShoppingListWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = amundsen.dev.ShoppingList.ShoppingListWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E1BADC522D0B0AA900B56E9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = ShoppingListWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A3NZ96F2M2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShoppingListWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShoppingListWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = amundsen.dev.ShoppingList.ShoppingListWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -564,6 +741,15 @@
 			buildConfigurations = (
 				E1922B712CD2957B00371C11 /* Debug */,
 				E1922B722CD2957B00371C11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1BADC532D0B0AA900B56E9F /* Build configuration list for PBXNativeTarget "ShoppingListWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1BADC512D0B0AA900B56E9F /* Debug */,
+				E1BADC522D0B0AA900B56E9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

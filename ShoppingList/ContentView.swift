@@ -7,55 +7,135 @@
 
 import SwiftUI
 import SwiftData
+import WidgetKit
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Query(sort: \Item.createdAt) private var items: [Item]
+    
+    @Environment(\.scenePhase) private var scenePhase
+    
+    @State private var newItem: String = ""
+    @State private var showAlert = false
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        let uncheckedItems = items.filter { !$0.checked }
+        let checkedItems = items.filter { $0.checked }
+        
+        NavigationStack {
+            HStack {
+                TextField("New item", text: $newItem)
+                    .foregroundStyle(.secondary)
+                    .onSubmit {
+                        addItem(name: newItem)
+                        newItem = ""
                     }
+                    .disableAutocorrection(true)
+                    
+                
+                Button(action: {
+                    addItem(name: newItem)
+                    newItem = ""
+                }) {
+                    Label("Add", systemImage: "plus")
+                }
+            }
+            
+            List {
+                /*
+                HStack {
+                    TextField("New item", text: $newItem)
+                        .foregroundStyle(.secondary)
+                        .onSubmit {
+                            addItem(name: newItem)
+                            newItem = ""
+                        }
+                        .disableAutocorrection(true)
+                        
+                    Spacer()
+                    Button(action: {
+                        addItem(name: newItem)
+                        newItem = ""
+                    }) {
+                        Label("Add", systemImage: "plus")
+                    }
+                }
+                */
+                
+                ForEach(uncheckedItems) { item in
+                    ShoppingListItemModelView(item: item)
+                }
+                .onDelete(perform: deleteItems)
+                
+                ForEach(checkedItems) { item in
+                    ShoppingListItemModelView(item: item)
                 }
                 .onDelete(perform: deleteItems)
             }
+            .navigationTitle("Shopping list")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
                 ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    Button(action: {
+                        showAlert = true
+                        
+                    }) {
+                        Label("Clear", systemImage: "trash")
                     }
                 }
             }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+            
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Delete all items"),
+                    message: Text("Are you sure you want to delete all items?"),
+                    primaryButton: .destructive(Text("Delete")) {
+                        deleteItems(offsets: IndexSet(items.indices))
+                    },
+                    secondaryButton: .cancel()
+                )
             }
+            
+            .onChange(of: scenePhase) {
+                if scenePhase == ScenePhase.background {
+                    print("App is now active")
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
+            }
+            
+        }
+    }
+    
+    private func addItem(name: String) {
+        if (name.isEmpty) {
+            return
+        }
+        
+        let newItem = Item(name: name)
+        modelContext.insert(newItem)
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print("Error saving item: \(error)")
+        }
+        
+    }
+    
+    private func deleteItems(offsets: IndexSet) {
+        for offset in offsets {
+            let item = items[offset]
+            modelContext.delete(item)
+        }
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print("Error deleting item: \(error)")
         }
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(previewContainer)
 }
